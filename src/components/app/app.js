@@ -8,7 +8,11 @@ import Background from "./food-bg.jpg";
 import "./app.css";
 
 const App = ({ RestoService }) => {
-  console.log(RestoService.getMenuItems());
+  console.log(
+    RestoService.getMenuItems().then(myJson => {
+      console.log(JSON.stringify(myJson));
+    })
+  );
   return (
     <Router>
       <div
