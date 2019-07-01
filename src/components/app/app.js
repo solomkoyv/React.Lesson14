@@ -15,13 +15,8 @@ const App = () => {
         }}
         className="app"
       >
-        <AppHeader total={50} />
-        <Route
-          path="/"
-          exact
-          component={() => <h1>Выберете блюдо в меню</h1>}
-        />
-        <Route path="/main-page" component={MainPage} />
+        <AppHeader total={10} />
+        <Route path="/" exact component={MainPage} />
         <Route path="/cart-page" component={CartPage} />
       </div>
     </Router>

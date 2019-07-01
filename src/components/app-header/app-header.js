@@ -1,12 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import cartIcon from "./shopping-cart-solid.svg";
+import { connect } from "react-redux";
 import "./app-header.scss";
 
 const AppHeader = ({ total }) => {
   return (
     <header className="header">
-      <Link to="/main-page" className="header__link">
+      <Link to="/" className="header__link">
         Menu
       </Link>
       <Link to="/cart-page" className="header__link">
@@ -17,4 +18,10 @@ const AppHeader = ({ total }) => {
   );
 };
 
-export default AppHeader;
+const mapStateToProps = ({ total }) => {
+  return {
+    total
+  };
+};
+
+export default connect(mapStateToProps)(AppHeader);
