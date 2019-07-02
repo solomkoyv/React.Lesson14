@@ -20,15 +20,21 @@ class MenuList extends Component {
     const { RestoService } = this.props;
     RestoService.getMenuItems()
       .then(res => this.props.menuLoaded(res))
-      .catch(this.props.menuError());
+      .catch(() => this.props.menuError());
   }
+
+  // componentDidCatch() {
+  //   this.props.menuError();
+  // }
+
   render() {
     const { menuItems, loading, error, addedToCart } = this.props;
-    if (loading) {
-      return <Spenner />;
-    }
+    console.log(error);
     if (error) {
       return <Error />;
+    }
+    if (loading) {
+      return <Spenner />;
     }
     return (
       <ul className="menu__list">
@@ -49,7 +55,8 @@ class MenuList extends Component {
 const mapStateToProps = state => {
   return {
     menuItems: state.menu,
-    loading: state.loading
+    loading: state.loading,
+    error: state.error
   };
 };
 

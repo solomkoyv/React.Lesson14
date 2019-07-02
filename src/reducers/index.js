@@ -34,7 +34,6 @@ const reducer = (state = initialState, action) => {
       };
       const double = state.items.find(item => item.id === id);
       if (!double) {
-        console.log(item.price);
         return {
           ...state,
           items: [...state.items, newItem],
